@@ -13,27 +13,29 @@
   </div>
   <form [formGroup]="registerForm" (ngSubmit)="doNext(registerForm.value)">
     <div class="form-group col-center" formGroupName= "registerData"> 
-      <ion-item class="register-bg">
+      <ion-item class="item-bg">
         <ion-label floating class="textColor-white">Personal Email</ion-label>
         <ion-input class="form-control" formControlName="personalEmail" type="email" required></ion-input>
       </ion-item>
 
-      <ion-item class="register-bg">
+      <ion-item class="item-bg">
         <ion-label floating class="textColor-white">Password</ion-label>
         <ion-input class="form-control" formControlName="password" type="password" required></ion-input>
       </ion-item>
 
-      <ion-item class="register-bg">
+      <ion-item class="item-bg">
         <ion-label floating class="textColor-white">Re-type Password</ion-label>
         <ion-input class="form-control" formControlName="retypePassword" type="password" required></ion-input>
       </ion-item>
 
-      <ion-item class="register-bg">
+      <ion-item class="item-bg">
         <ion-label>I agree to the terms and condition</ion-label>
-        <ion-checkbox required class="form-control" formControlName="agreeTermsAndCondition" (ionChange)="updateTermsAndCondition()"></ion-checkbox>
+        <ion-checkbox required class="form-control" formControlName="agreeTermsAndCondition" 
+        (ionChange)="updateTermsAndCondition()" required></ion-checkbox>
       </ion-item>
       <div class="col-center margin-10"> 
-        <button type="submit" [disabled] = "!registerForm.valid" ion-button full class="login_button"> Next </button>
+        <button type="submit" [disabled] = "!registerForm.valid" 
+        ion-button full class="login_button"> Next </button>
       </div>
     </div>
   </form>

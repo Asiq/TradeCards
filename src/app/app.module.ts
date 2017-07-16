@@ -1,3 +1,4 @@
+import { RegisterfinalPage } from './../pages/registerfinal/registerfinal';
 import { RegisterPage } from './../pages/register/register';
 import { LoginPage } from './../pages/login/login';
 import { BrowserModule } from '@angular/platform-browser';
@@ -22,7 +23,8 @@ import { HttpModule } from "@angular/http";
     ListPage,
     LauncherPage,
     LoginPage,
-    RegisterPage
+    RegisterPage,
+    RegisterfinalPage
   ],
   imports: [
     BrowserModule,
@@ -38,7 +40,8 @@ import { HttpModule } from "@angular/http";
     ListPage,
     LauncherPage,
     LoginPage,
-    RegisterPage
+    RegisterPage,
+    RegisterfinalPage
   ],
   providers: [
     StatusBar,
