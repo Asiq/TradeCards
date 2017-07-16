@@ -1,7 +1,8 @@
+import { HomePage } from './../home/home';
 import { LoginserviceProvider } from './../../providers/loginservice/loginservice';
 import { Component, OnInit } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { FormGroup, FormBuilder, Validators, FormControl } from "@angular/forms";
+import { FormGroup, Validators, FormControl } from "@angular/forms";
 
 /**
  * Generated class for the LoginPage page.
@@ -52,6 +53,7 @@ export class LoginPage implements OnInit {
         .subscribe(loginRes =>  { this.loginRes = loginRes, 
           console.log(this.loginRes), 
           console.log('issuccess :: '+ this.loginRes.isSuccess) } );
+          this.navCtrl.push(HomePage);
     } else {
       console.log('Login Form Invalid..');
     }
