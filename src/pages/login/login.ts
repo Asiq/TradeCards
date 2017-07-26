@@ -1,7 +1,7 @@
 import { HomePage } from './../home/home';
 import { LoginserviceProvider } from './../../providers/loginservice/loginservice';
 import { Component, OnInit } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, AlertController, LoadingController, ToastController } from 'ionic-angular';
 import { FormGroup, Validators, FormControl } from "@angular/forms";
 
 /**
@@ -19,8 +19,11 @@ export class LoginPage implements OnInit {
   
   loginRes: any;
   loginForm : FormGroup;
+  loginDetails: any;
+  loading: any;
   constructor(public navCtrl: NavController, public navParams: NavParams, 
-    private loginService: LoginserviceProvider) {
+    private loginService: LoginserviceProvider, private alertCtrl: AlertController, 
+    private loadingCtrl: LoadingController, private toastCtrl: ToastController) {
     
   }
 
@@ -48,15 +51,66 @@ export class LoginPage implements OnInit {
 
   doLogin(value: any) {
     if(this.loginForm.valid) {
-      console.log(value.loginData.email + '     ' + value.loginData.password);
+      if(value.loginData.remeberLogin) {
+        this.loginDetails = { 'email' : value.loginData.email, 
+                              'password' : value.loginData.password,
+                            'rememberLogin' : value.loginData.remeberLogin };
+
+        console.log("loginDetials :: "+ this.loginDetails);
+        this.loginService.setData("loginDetails", this.loginDetails);
+      }
+      this.presentLoadingDefault();
       this.loginService.getLoginData(value.loginData.email, value.loginData.password)
         .subscribe(loginRes =>  { this.loginRes = loginRes, 
-          console.log(this.loginRes), 
-          console.log('issuccess :: '+ this.loginRes.isSuccess) } );
-          this.navCtrl.push(HomePage);
+          this.loading.dismiss();
+          this.navigate();
+        });
+          
+		
     } else {
       console.log('Login Form Invalid..');
     }
   }
+
+  presentLoadingDefault() {
+    this.loading = this.loadingCtrl.create({
+      content: `
+      <ion-spinner></ion-spinner>`
+    });
+
+    this.loading.present();
+  }
+
+  navigate() {
+    if (this.loginRes && this.loginRes.isSuccess === 1) {
+        this.presentToast("LoggedIn Successfully");
+        this.navCtrl.push(HomePage);
+    } else {
+        this.showAlert();
+    }
+  }
+
+  showAlert() {
+    let alert = this.alertCtrl.create({
+      title: 'TradeCards!',
+      subTitle: 'Invalid Login.',
+      buttons: ['OK']
+    });
+    alert.present();
+  }
+
+  presentToast(message) {
+  let toast = this.toastCtrl.create({
+    message: message,
+    duration: 3000,
+    position: 'bottom'
+  });
+
+  toast.onDidDismiss(() => {
+    console.log('Dismissed toast');
+  });
+
+  toast.present();
+}
 
 }

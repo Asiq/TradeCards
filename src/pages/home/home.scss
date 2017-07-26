@@ -1,3 +1,35 @@
-page-home {
 
+.custom-footer-color {
+	.toolbar-background-md {
+		background:#fff !important;
+		.row {
+			height:43px;
+
+			img {
+				padding:0px;
+			}
+			div:first-child {
+				border-right:1px solid #ccc;
+			}
+			div:last-child {
+				border-left:1px solid #ccc;
+			}
+		}
+	}
 }
+
+.img_src {
+	width: 100%;
+    height: 100%;
+}
+
+.img_src_next {
+	width: 155px;
+    height: 75px;
+}
+
+.footer_row {
+	text-align: center;
+	align-items: flex-end;
+}
+

@@ -5,22 +5,19 @@
   Ionic pages and navigation.
 -->
 <ion-content padding class="container" scroll="false">
-  <div class="col-center margin-Top-30"> 
-      <img src="../../assets/images/ic_launcher.png">
-  </div>
-  <div class="col-center textColor-white"> 
-      <span> TRADECARDS </span>
+  <div class="col-center"> 
+      <img src="assets/images/icon.png">
   </div>
   <form [formGroup]="loginForm" (ngSubmit)="doLogin(loginForm.value)">
     <div class="form-group col-center" formGroupName= "loginData"> 
-      <ion-item class="login-bg">
+      <ion-item class="item-bg">
         <ion-label floating class="textColor-white">Personal Email</ion-label>
         <ion-input type="email" class="form-control" formControlName="email" required></ion-input>
       </ion-item>
       <div *ngIf="!loginForm.get('loginData.email').valid && loginForm.get('loginData.email').touched" 
       class="help-block">Please Enter Valid Email </div>
 
-      <ion-item class="login-bg">
+      <ion-item class="item-bg">
         <ion-label floating class="textColor-white">Password</ion-label>
         <ion-input type="password" class="form-control" formControlName="password" required></ion-input>
       </ion-item>
@@ -28,7 +25,7 @@
       <div *ngIf="!loginForm.get('loginData.password').valid && loginForm.get('loginData.password').touched" 
       class="help-block">Please Enter Password </div>
       
-      <ion-item class="login-bg">
+      <ion-item class="item-bg">
         <ion-label>Remember login</ion-label>
         <ion-checkbox class="form-control" formControlName="remeberLogin" (ionChange)="updateRememberLogin()"></ion-checkbox>
       </ion-item>

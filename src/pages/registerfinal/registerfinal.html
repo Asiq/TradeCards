@@ -5,19 +5,16 @@
   Ionic pages and navigation.
 -->
 <ion-content padding class="container" scroll="false">
-    <div class="col-center margin-Top-30"> 
-      <img src="../../assets/images/ic_launcher.png">
-    </div>
-    <div class="col-center textColor-white"> 
-      <span> TRADECARDS </span>
+    <div class="col-center"> 
+      <img src="assets/images/icon.png">
     </div>
     <div class="col-center textColor-white"> 
       <span> We want you to put your work info so that in the event that you have a change of job, 
-        it will be easily updatable! 
+        it will be easily updatable!
       </span>
     </div>
     <form [formGroup]="registerFinalForm" (ngSubmit)="doStart(registerFinalForm.value)"> 
-      <div class="form-group col-center"> 
+      <div class="form-group col-center" formGroupName= "registerFinalData"> 
         <ion-item class="item-bg">
           <ion-label color="primary" class="textColor-white">Name:</ion-label>
           <ion-input class="form-control" formControlName="name" type="text" required></ion-input>

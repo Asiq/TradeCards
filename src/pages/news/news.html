@@ -1,0 +1,81 @@
+<ion-header>
+  <ion-navbar hideBackButton="true">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title class="col-center">
+        News
+    </ion-title>
+    <ion-buttons end (click) ="callNotification()">
+      <button ion-button icon-only>
+        <ion-icon ios="ios-notifications" md="md-notifications"></ion-icon>
+      </button>
+    </ion-buttons> 
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-grid>
+    <ion-row>
+      <ion-col col-9>
+        <ion-searchbar style="padding: 0;" [(ngModel)]="searchTerm" (ionInput)="setFilteredItems()"></ion-searchbar>
+      </ion-col>
+      <ion-col col-3 class="button-container">
+        <button ion-button> 
+          Filter
+        </button>
+      </ion-col>
+    </ion-row>
+    <!--<div *ngIf="searching" class="spinner-container">
+        <ion-spinner></ion-spinner>
+    </div>-->
+    <ion-row *ngFor='let l of newsListData; let i = index'>
+      <div *ngIf="i==0">
+        <ion-row >
+          <img class="img_src" src="{{ l.AttachmentLocation }}" />
+        </ion-row>
+        <ion-row >
+          <p>{{ l.NewsTitle }}</p>
+        </ion-row>
+      </div>
+      <div *ngIf="i>0">
+        <ion-row>
+          <ion-row *ngIf="l.NewsType !== ('Youtube Video' && 'Banner')">
+            <ion-col width-40>
+              <img class="img_src_next" src="{{ l.AttachmentLocation === '' ? l.NewsLink : l.AttachmentLocation }}" />
+            </ion-col>
+            <ion-col width-60 >
+              <span>{{ l.NewsTitle }}</span>
+            </ion-col>
+          </ion-row>
+          <ion-row *ngIf="l.NewsType === 'Banner'">
+            <img class="img_src" src="{{ l.AttachmentLocation }}" />
+          </ion-row>
+        </ion-row>
+      </div>
+      <hr style="width:100%; border-bottom: 1px solid #1D71B9">
+    </ion-row>
+  </ion-grid>
+</ion-content>
+
+<ion-footer class="custom-footer-color">
+  <ion-toolbar>
+    <ion-row class="footer_row">
+      <ion-col (click) ="callNews()">
+        <img src="assets/icon/news.png">
+      </ion-col>
+      <ion-col>
+        <img src="assets/icon/events.png">
+      </ion-col>
+      <ion-col no-padding>
+        <img src="assets/icon/scanning.png">
+      </ion-col>
+      <ion-col (click) ="callContacts()">
+        <img src="assets/icon/contacts.png">
+      </ion-col>
+      <ion-col>
+        <img src="assets/icon/profile.png">
+      </ion-col>
+    </ion-row>
+  </ion-toolbar>
+</ion-footer>

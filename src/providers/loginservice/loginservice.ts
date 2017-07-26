@@ -26,4 +26,12 @@ export class LoginserviceProvider {
       .map(res => res.json());
   }
 
+  setData(key: any, value: any) {
+    window.localStorage.setItem(key, JSON.stringify(value));
+  }
+
+  getData(key: any) : any {
+    return JSON.parse(window.localStorage.getItem(key));
+  }
+
 }

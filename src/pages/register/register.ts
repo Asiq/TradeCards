@@ -1,3 +1,5 @@
+import { LoginserviceProvider } from './../../providers/loginservice/loginservice';
+import { RegisterfinalPage } from './../registerfinal/registerfinal';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
@@ -16,7 +18,8 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 export class RegisterPage implements OnInit {
   registerForm : FormGroup;
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  registerData : any;
+  constructor(public navCtrl: NavController, public navParams: NavParams, private loginService: LoginserviceProvider) {
   }
 
   ngOnInit(): void {
@@ -46,6 +49,12 @@ export class RegisterPage implements OnInit {
     if(this.registerForm.valid) {
       console.log(value.registerData.personalEmail + ' password::     ' +
        value.registerData.password + ' retype :: ' + value.registerData.retypePassword);
+       this.registerData = {'personalEmail' : value.registerData.personalEmail,
+                            'password': value.registerData.password,
+                            'reTypePassword': value.registerData.retypePassword };
+
+       this.loginService.setData("registerData", this.registerData);
+       this.navCtrl.push(RegisterfinalPage);
     } else {
 
     }
