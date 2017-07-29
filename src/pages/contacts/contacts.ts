@@ -1,3 +1,4 @@
+import { UserContactPage } from './../user-contacts/user-contacts';
 import { HomeserviceProvider } from './../../providers/homeservice/homeservice';
 import { Component, OnInit } from '@angular/core';
 import { NavController, NavParams, LoadingController } from 'ionic-angular';
@@ -5,6 +6,7 @@ import { NotificationPage } from "../notification/notification";
 import { FormControl } from '@angular/forms';
 import 'rxjs/add/operator/debounceTime';
 import { NewsPage } from "../news/news";
+import { UserProfilePage } from "../profile/profile";
 @Component({
   selector: 'page-contacts',
   templateUrl: 'contacts.html'
@@ -106,8 +108,18 @@ export class ContactsPage implements OnInit {
     this.loading.present();
   }
 
+  callUserContacts(info: any) {
+    this.navCtrl.push(UserContactPage, {
+      userInfo: info
+    })
+  }
+
   callNews() {
     this.navCtrl.push(NewsPage);
+  }
+
+  callProfile(){
+    this.navCtrl.push(UserProfilePage);  
   }
 
 }

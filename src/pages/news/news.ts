@@ -3,6 +3,7 @@ import { HomeserviceProvider } from './../../providers/homeservice/homeservice';
 import { Component, OnInit } from '@angular/core';
 import { NavController, NavParams, LoadingController } from 'ionic-angular';
 import { NotificationPage } from "../notification/notification";
+import { UserProfilePage } from "../profile/profile";
 
 @Component({
   selector: 'page-news',
@@ -82,6 +83,10 @@ export class NewsPage implements OnInit {
 
   callContacts() {
     this.navCtrl.push(ContactsPage);
+  }
+
+  callProfile(){
+    this.navCtrl.push(UserProfilePage);  
   }
 
 }

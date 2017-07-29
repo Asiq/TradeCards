@@ -12,11 +12,7 @@
       </button>
     </ion-buttons> 
   </ion-navbar>
-</ion-header>
-
-<ion-content padding>
-  <ion-grid>
-    <ion-row>
+  <ion-row>
       <ion-col col-9>
         <ion-searchbar style="padding: 0;" [(ngModel)]="searchTerm" (ionInput)="setFilteredItems()"></ion-searchbar>
       </ion-col>
@@ -25,7 +21,21 @@
           Filter
         </button>
       </ion-col>
-    </ion-row>
+  </ion-row>
+</ion-header>
+
+<ion-content padding>
+  <ion-grid>
+    <!--<ion-row>
+      <ion-col col-9>
+        <ion-searchbar style="padding: 0;" [(ngModel)]="searchTerm" (ionInput)="setFilteredItems()"></ion-searchbar>
+      </ion-col>
+      <ion-col col-3 class="button-container">
+        <button ion-button> 
+          Filter
+        </button>
+      </ion-col>
+    </ion-row>-->
     <!--<div *ngIf="searching" class="spinner-container">
         <ion-spinner></ion-spinner>
     </div>-->
@@ -73,7 +83,7 @@
       <ion-col (click) ="callContacts()">
         <img src="assets/icon/contacts.png">
       </ion-col>
-      <ion-col>
+      <ion-col (click) = "callProfile()">
         <img src="assets/icon/profile.png">
       </ion-col>
     </ion-row>

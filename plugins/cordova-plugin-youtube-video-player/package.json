@@ -1,0 +1,82 @@
+{
+  "_args": [
+    [
+      {
+        "raw": "cordova-plugin-youtube-video-player",
+        "scope": null,
+        "escapedName": "cordova-plugin-youtube-video-player",
+        "name": "cordova-plugin-youtube-video-player",
+        "rawSpec": "",
+        "spec": "latest",
+        "type": "tag"
+      },
+      "E:\\workspace\\TradeCardsNew\\TradeCards\\node_modules"
+    ]
+  ],
+  "_from": "cordova-plugin-youtube-video-player@latest",
+  "_id": "cordova-plugin-youtube-video-player@1.0.6",
+  "_inCache": true,
+  "_location": "/cordova-plugin-youtube-video-player",
+  "_nodeVersion": "7.4.0",
+  "_npmOperationalInternal": {
+    "host": "packages-18-east.internal.npmjs.com",
+    "tmp": "tmp/cordova-plugin-youtube-video-player-1.0.6.tgz_1495042361730_0.09016340435482562"
+  },
+  "_npmUser": {
+    "name": "ihadeed",
+    "email": "i.hadeed@zyra.ca"
+  },
+  "_npmVersion": "4.0.5",
+  "_phantomChildren": {},
+  "_requested": {
+    "raw": "cordova-plugin-youtube-video-player",
+    "scope": null,
+    "escapedName": "cordova-plugin-youtube-video-player",
+    "name": "cordova-plugin-youtube-video-player",
+    "rawSpec": "",
+    "spec": "latest",
+    "type": "tag"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/cordova-plugin-youtube-video-player/-/cordova-plugin-youtube-video-player-1.0.6.tgz",
+  "_shasum": "bc1ac92d0377cb8aef12cdb3c01577f2b172e2f5",
+  "_shrinkwrap": null,
+  "_spec": "cordova-plugin-youtube-video-player",
+  "_where": "E:\\workspace\\TradeCardsNew\\TradeCards\\node_modules",
+  "author": "",
+  "bugs": {
+    "url": "https://github.com/ihadeed/CordovaYoutubeVideoPlayer/issues"
+  },
+  "dependencies": {},
+  "description": "**Play Youtube Videos in a native Video Player on Android &amp; iOS.**",
+  "devDependencies": {},
+  "directories": {},
+  "dist": {
+    "shasum": "bc1ac92d0377cb8aef12cdb3c01577f2b172e2f5",
+    "tarball": "https://registry.npmjs.org/cordova-plugin-youtube-video-player/-/cordova-plugin-youtube-video-player-1.0.6.tgz"
+  },
+  "gitHead": "863a332f2719b2402722afc25bb4155ffd58db67",
+  "homepage": "https://github.com/ihadeed/CordovaYoutubeVideoPlayer#readme",
+  "license": "ISC",
+  "main": "index.js",
+  "maintainers": [
+    {
+      "name": "ihadeed",
+      "email": "i.hadeed@zyra.ca"
+    }
+  ],
+  "name": "cordova-plugin-youtube-video-player",
+  "optionalDependencies": {},
+  "readme": "ERROR: No README data found!",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ihadeed/CordovaYoutubeVideoPlayer.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "version": "1.0.6"
+}

@@ -1,0 +1,107 @@
+<ion-header>
+    <ion-navbar hideBackButton="true">
+        <button ion-button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+        </button>
+        <ion-title class="col-center">
+            Profile
+        </ion-title>
+        <ion-buttons end (click) ="callNotification()">
+              <button ion-button icon-only>
+                  <ion-icon ios="ios-notifications" md="md-notifications"></ion-icon>
+              </button>
+        </ion-buttons> 
+    </ion-navbar>
+</ion-header>
+
+<ion-content padding class="no-padding">
+    <ion-grid>        
+        <ion-row>
+            <ion-col col-5>
+                <img src="assets/images/qrcode.png" />
+            </ion-col>
+            <ion-col col-7 class="profile-container">                
+                <ion-row class="profile-name">
+                    <img src="assets/icon/green_mark.png" />
+                    {{profile.Name}}
+                </ion-row>
+                <ion-row>{{profile.MemberIndustry}}</ion-row>
+                <ion-row class="margin-top-5px">{{profile.TradeCompanyName}}</ion-row>                              
+            </ion-col>
+        </ion-row>
+        
+        <ion-grid>                   
+            <ion-row>
+                <ion-col text-right class="text-color-blue" style="padding-right: 10px;" (click)="editProfile()">Edit</ion-col>
+            </ion-row>            
+            <ion-row class="padding-10px">
+                <ion-col class="max-width-100-px">Country</ion-col>
+                <ion-col class="text-color-blue">{{profile.CompanyCountry}}</ion-col>
+            </ion-row>
+            <ion-row class="padding-10px">
+                <ion-col class="max-width-100-px">Email</ion-col>
+                <ion-col class="text-color-blue">{{profile.CompanyEmail}}</ion-col>
+            </ion-row>
+            <ion-row class="padding-10px">
+                <ion-col class="max-width-100-px">Industry</ion-col>
+                <ion-col class="text-color-blue">{{profile.MemberIndustry}}</ion-col>
+            </ion-row>
+            <ion-row class="padding-10px"> 
+                <ion-col class="max-width-100-px">Mobile</ion-col>
+                <ion-col class="text-color-blue">{{profile.MobileNumber}}</ion-col>
+            </ion-row>
+            <ion-row class="padding-10px">
+                <ion-col class="max-width-100-px">Work</ion-col>
+                <ion-col class="text-color-blue">{{profile.OfficeNumber}}</ion-col>
+            </ion-row>
+            <ion-row class="padding-10px">
+                <ion-col class="max-width-100-px">Associated Company</ion-col>
+                <ion-col class="text-color-blue">{{profile.TradeCompanyName}}</ion-col>
+            </ion-row>
+            <ion-row class="padding-10px">
+                <ion-col class="max-width-100-px">Bio</ion-col>                
+            </ion-row>                    
+            <ion-row>
+                <ion-col class="padding-10px text-italic" style="padding-left: 5px;">{{profile.Bio}}</ion-col>
+            </ion-row>            
+        </ion-grid>
+        
+        <!-- Which api needs to be used to fetch the recently added contacts -->
+        <ion-grid>
+            <ion-row style="padding-bottom: 20px;">
+                Recently Added ({{userlen}})    
+            </ion-row>
+            
+            <ion-row>
+                <div style="width: 75px; height: 75px; display: inline-block;" *ngFor="let user of userlist">
+                    <img *ngIf="user.AttachmentLocation" src="{{user.AttachmentLocation}}" />                    
+                </div>
+            </ion-row>
+            
+            
+        </ion-grid>
+    </ion-grid>      
+</ion-content>
+
+
+<ion-footer class="custom-footer-color">
+      <ion-toolbar>
+            <ion-row class="footer_row">
+                  <ion-col (click) ="callNews()">
+                      <img src="assets/icon/news.png">
+                  </ion-col>
+                  <ion-col>
+                        <img src="assets/icon/events.png">
+                  </ion-col>
+                  <ion-col no-padding>
+                        <img src="assets/icon/scanning.png">
+                  </ion-col>
+                  <ion-col (click) = "callContacts()">
+                        <img src="assets/icon/contacts.png">
+                  </ion-col>
+                  <ion-col>
+                        <img src="assets/icon/profile.png">
+                  </ion-col>
+            </ion-row>
+      </ion-toolbar>
+</ion-footer>

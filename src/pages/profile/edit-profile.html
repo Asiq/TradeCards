@@ -1,0 +1,97 @@
+<ion-header>
+    <ion-navbar hideBackButton="true">
+        <button ion-button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+        </button>
+        <ion-title class="col-center">
+            Edit Profile
+        </ion-title>
+        <ion-buttons end (click) ="callNotification()">
+              <button ion-button icon-only>
+                  <ion-icon ios="ios-notifications" md="md-notifications"></ion-icon>
+              </button>
+        </ion-buttons>        
+    </ion-navbar>
+    <ion-navbar style="min-height: 30px;">
+        <ion-buttons end (click)="updateProfile()">
+              <button ion-button icon-only>
+                  Save
+              </button>
+        </ion-buttons>        
+    </ion-navbar>
+</ion-header>
+
+<ion-content padding class="no-padding">
+    <ion-grid>        
+        <ion-row text-center class="display-inline-block photo-container">                                    
+            <div class="display-inline-block">
+                <img class="display-block photo-placer" src="assets/icon/placeholder_big_new.png" />
+                <img class="display-inline-block camera-icon" src="assets/icon/camera_blue.png" />
+            </div>                     
+        </ion-row>
+        
+        <ion-grid>                                           
+            <ion-row class="padding-10px">
+                <ion-col class="max-width-100-px">Name</ion-col>
+                <ion-col class="text-color-blue"><input type="text" [(ngModel)]="profile.Name" /></ion-col>
+            </ion-row>
+            <ion-row class="padding-10px">
+                <ion-col class="max-width-100-px">Position</ion-col>
+                <ion-col class="text-color-blue"><input type="text" [(ngModel)]="profile.Position" /></ion-col>
+            </ion-row>
+            <ion-row class="padding-10px">
+                <ion-col class="max-width-100-px">Associated Company</ion-col>
+                <ion-col class="text-color-blue"><input type="text" [(ngModel)]="profile.TradeCompanyName" /></ion-col>
+            </ion-row>
+            <ion-row class="padding-10px">
+                <ion-col class="max-width-100-px">Country</ion-col>
+                <ion-col class="text-color-blue"><input type="text" [(ngModel)]="profile.CompanyCountry" /></ion-col>
+            </ion-row>
+            <ion-row class="padding-10px">
+                <ion-col class="max-width-100-px">Email</ion-col>
+                <ion-col class="text-color-blue"><input type="text" [(ngModel)]="profile.CompanyEmail" /></ion-col>
+            </ion-row>
+            <ion-row class="padding-10px">
+                <ion-col class="max-width-100-px">Industry</ion-col>
+                <ion-col class="text-color-blue"><input type="text" [(ngModel)]="profile.MemberIndustry" /></ion-col>
+            </ion-row>
+            <ion-row class="padding-10px"> 
+                <ion-col class="max-width-100-px">Mobile</ion-col>
+                <ion-col class="text-color-blue"><input type="text" [(ngModel)]="profile.MobileNumber" /></ion-col>
+            </ion-row>
+            <ion-row class="padding-10px">
+                <ion-col class="max-width-100-px">Work</ion-col>
+                <ion-col class="text-color-blue"><input type="text" [(ngModel)]="profile.OfficeNumber" /></ion-col>
+            </ion-row>    
+            <ion-row class="padding-10px">
+                <ion-col class="max-width-100-px">Bio</ion-col>                
+            </ion-row>                    
+            <ion-row>
+                <ion-col class="padding-10px text-italic" style="padding-left: 5px;"><textarea [(ngModel)]="profile.Bio"></textarea></ion-col>
+            </ion-row>            
+        </ion-grid>                
+    </ion-grid>      
+</ion-content>
+
+
+<ion-footer class="custom-footer-color">
+      <ion-toolbar>
+            <ion-row class="footer_row">
+      <ion-col (click) ="callNews()">
+        <img src="assets/icon/news.png">
+      </ion-col>
+      <ion-col>
+        <img src="assets/icon/events.png">
+      </ion-col>
+      <ion-col no-padding>
+        <img src="assets/icon/scanning.png">
+      </ion-col>
+      <ion-col (click) = "callContacts()">
+        <img src="assets/icon/contacts.png">
+      </ion-col>
+      <ion-col (click) = "callProfile()">
+        <img src="assets/icon/profile.png">
+      </ion-col>
+    </ion-row>
+      </ion-toolbar>
+</ion-footer>

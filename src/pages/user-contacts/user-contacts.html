@@ -1,0 +1,98 @@
+<ion-header>
+    <ion-navbar hideBackButton="true">
+        <button ion-button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+        </button>
+        <ion-title class="col-center">
+            Contacts
+        </ion-title>
+        <ion-buttons end (click) ="callNotification()">
+                     <button ion-button icon-only>
+                <ion-icon ios="ios-notifications" md="md-notifications"></ion-icon>
+            </button>
+        </ion-buttons> 
+    </ion-navbar>
+    <ion-navbar hideBackButton="true">
+        <ion-buttons end>
+            <button *ngIf="showSaveButtom" ion-button (click)="updateRemarkContent()">save</button>
+        </ion-buttons>
+    </ion-navbar>
+    <ion-item class="custom-profile">
+        <ion-avatar item-start>
+            <img class="img_src" src="{{ userContact.AttachmentLocation === '' ? 'assets/icon/placeholder_big_new.png' : userContact.AttachmentLocation }}">
+        </ion-avatar>
+        <h2 class="title">{{ userContact.Name }}</h2>
+        <h3>{{ userContact.TradeCompanyName }}</h3>  
+    </ion-item>
+</ion-header>
+
+<ion-content no-padding>
+
+    <ion-grid>
+        <ion-row>
+            <ion-col col-11>
+                <ion-row> <ion-col col-12 class="text-blue" text-right secondary></ion-col></ion-row>
+                <ion-row> <ion-col col-4 text-left secondary>Country</ion-col>
+                    <ion-col class="text-blue" col-4 text-left secondary>{{userContact.CompanyCountry}}</ion-col>
+                </ion-row>
+
+                <ion-row> <ion-col col-4 text-left secondary>Email</ion-col>
+                    <ion-col class="text-blue" col-5 text-left secondary>{{userContact.CompanyEmail}}</ion-col></ion-row>
+                <ion-row> <ion-col col-4 text-left secondary>Industry</ion-col>
+                    <ion-col class="text-blue" col-5 text-left secondary>{{userContact.MemberIndustry}}</ion-col></ion-row>
+                <ion-row> <ion-col col-4 text-left secondary>Mobile</ion-col>
+                    <ion-col class="text-blue" col-5 text-left secondary>{{userContact.MobileNumber}}</ion-col></ion-row>
+                <ion-row>  <ion-col col-4 text-left secondary>Work Number</ion-col>
+                    <ion-col class="text-blue" col-5 text-left secondary>{{userContact.OfficeNumber}}</ion-col></ion-row>
+                <ion-row><ion-col col-4 text-left secondary>Associated Company</ion-col>
+                    <ion-col class="text-blue" col-5 text-left secondary>{{userContact.TradeCompanyName}}</ion-col></ion-row>
+                <ion-row>  <ion-col col-12 text-left secondary>Bio</ion-col>
+                    <ion-col  col-12 text-left secondary><i>{{userContact.Bio}}</i></ion-col></ion-row>
+
+                <ion-row>
+                    <h6>Trade contacts(4)</h6>
+                </ion-row>
+
+            </ion-col>
+            <ion-col col-1><h5 class="chat-icon"><ion-icon name="chatbubbles-outline"></ion-icon></h5></ion-col>
+
+        </ion-row>
+        <ion-row>
+            <h6>Remarks</h6>
+            <ion-col col-12 text-left secondary>
+                <div (click)="enableSaveButton();" class="editable-div" contenteditable="true">
+                    <textarea rows="4" cols="50" [(ngModel)]="userContact.Remark"> 
+                    </textarea>
+                </div>
+
+            </ion-col>
+
+
+        </ion-row>
+    </ion-grid>
+
+
+
+</ion-content>
+
+<ion-footer class="custom-footer-color">
+    <ion-toolbar>
+        <ion-row class="footer_row">
+            <ion-col (click) ="callNews()">
+                <img src="assets/icon/news.png">
+            </ion-col>
+            <ion-col>
+                <img src="assets/icon/events.png">
+            </ion-col>
+            <ion-col no-padding>
+                <img src="assets/icon/scanning.png">
+            </ion-col>
+            <ion-col (click) ="callContacts()">
+                <img src="assets/icon/contacts.png">
+            </ion-col>
+            <ion-col (click) ="callProfile()">
+                <img src="assets/icon/profile.png">
+            </ion-col>
+        </ion-row>
+    </ion-toolbar>
+</ion-footer>

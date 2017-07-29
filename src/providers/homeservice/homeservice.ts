@@ -36,6 +36,11 @@ export class HomeserviceProvider {
       .map(res => res.json());
   }
 
+  getCompanyList() {
+    return this.http.get('http://www.tradecardsglobal.com/MobileAppWebService/MobileAppWebService.asmx/GetCompanyMaster')
+    .map(res => res.json());
+  }
+
   getNotifications(): Observable<ILogin> {
     this.loginData = this.loginService.getData("loginDetails");
     console.log('loginData :: ' + JSON.stringify(this.loginData));
@@ -56,4 +61,19 @@ export class HomeserviceProvider {
     .map(res => res.json());
   }
 
+  getProfileInfo(): Observable<ILogin> {
+    this.loginData = this.loginService.getData("loginDetails");
+    return this.http.get('http://www.tradecardsglobal.com/MobileAppWebService/MobileAppWebService.asmx/GetUserParticulars?EmailAddress=' + this.loginData.email)
+    .map(res => res.json());
+  }
+  getAroundContactList() : Observable<ILogin> {
+    this.loginData = this.loginService.getData("loginDetails");
+    return this.http.get('http://www.tradecardsglobal.com/MobileAppWebService/MobileAppWebService.asmx/GetUserContactMaster?EmailAddress=' + this.loginData.email)
+    .map(res => res.json());
+  }
+   getProductsList() : Observable<ILogin> {
+    return this.http.get('http://www.tradecardsglobal.com/MobileAppWebService/MobileAppWebService.asmx/GetProductList')
+    .map(res => res.json());
+  }
 }
+

@@ -1,3 +1,7 @@
+import { YoutubeVideoPlayer } from '@ionic-native/youtube-video-player';
+import { ProfileServiceProvider } from './../providers/profileservice/profileservice';
+import { UserProfilePage } from './../pages/profile/profile';
+import { UserContactPage } from './../pages/user-contacts/user-contacts';
 import { ContactsPage } from './../pages/contacts/contacts';
 import { RegisterfinalPage } from './../pages/registerfinal/registerfinal';
 import { RegisterPage } from './../pages/register/register';
@@ -5,6 +9,7 @@ import { LoginPage } from './../pages/login/login';
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
+import { AutoCompleteModule } from 'ionic2-auto-complete';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
@@ -26,6 +31,9 @@ import { LoginserviceProvider } from '../providers/loginservice/loginservice';
 import { HomeserviceProvider } from '../providers/homeservice/homeservice';
 import { HttpModule } from "@angular/http";
 import { NotificationPage } from "../pages/notification/notification";
+import { InAppBrowser } from "@ionic-native/in-app-browser";
+import { EditUserProfilePage } from "../pages/profile/edit-profile";
+import { AotocompleteProvider } from '../providers/aotocomplete/aotocomplete';
 
 @NgModule({
   declarations: [
@@ -45,13 +53,17 @@ import { NotificationPage } from "../pages/notification/notification";
     RegisterPage,
     RegisterfinalPage,
     NotificationPage,
-    ContactsPage
+    ContactsPage,
+    UserContactPage,
+    UserProfilePage,
+    EditUserProfilePage
   ],
   imports: [
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
     HttpModule,
+    AutoCompleteModule,
     IonicModule.forRoot(MyApp),
   ],
   bootstrap: [IonicApp],
@@ -72,14 +84,21 @@ import { NotificationPage } from "../pages/notification/notification";
     RegisterPage,
     RegisterfinalPage,
     NotificationPage,
-    ContactsPage
+    ContactsPage,
+    UserContactPage,
+    UserProfilePage,
+    EditUserProfilePage
   ],
   providers: [
     StatusBar,
     SplashScreen,
+    InAppBrowser,
+    YoutubeVideoPlayer,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     LoginserviceProvider,
-    HomeserviceProvider
+    HomeserviceProvider,
+    ProfileServiceProvider,
+    AotocompleteProvider
   ]
 })
 export class AppModule {}

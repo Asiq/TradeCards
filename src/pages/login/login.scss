@@ -12,4 +12,13 @@ page-login {
     .help-block {
         color: #ea6153;
     }
+
+    .active {
+        border: 2px solid yellow;
+    }
+
+    .deActive {
+        border: 2px solid red;
+    }
+
 }

@@ -1,0 +1,54 @@
+
+.spinner-container {
+    width: 100%;
+    text-align: center;
+    padding: 10px;
+}
+.button-container {
+    align-self: flex-end;
+    text-align: right;
+}
+
+.icons {
+    background-color: #fff;
+    border: 1px solid #7f8c8d;
+    color: #7f8c8d;
+    margin: 0;
+    font-size: 0.9em;
+}
+.contact-label{
+    background: #ccc;
+    padding: 5px;
+    margin: 5px;
+}
+.custom-profile{
+    padding: 0px !important;
+    background-color: #eeebeb !important;
+
+
+    img{
+        height: 100px !important;
+        width: 100px !important;
+        margin-left: 10px;
+    }
+    .title{
+        margin-bottom: 29px;
+        color: #1d73b5 !important;
+    }
+
+}
+.editable-div{
+    border-radius: 4px;
+    height: 79px;
+    margin-bottom: 6px;
+    border: 1px solid #1d73b5;
+    width: 100%;
+}
+.chat-icon{
+    margin-top: 3px;
+    margin-left: -10px;
+    /* padding-bottom: 26px; */
+    font-size: 35px;
+    color: #1d73b5;
+}
+textarea { border: none; width: 100%;}

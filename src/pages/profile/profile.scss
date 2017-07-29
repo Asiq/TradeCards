@@ -1,0 +1,38 @@
+page-profile {    
+    .no-padding {
+        padding: 0px !important;
+    }    
+    
+    .max-width-100-px {
+        max-width: 100px;
+    }
+    
+    .padding-10px {
+        padding: 0px 5px 5px 0px;
+    }
+    
+    .text-color-blue {
+        color: $toolbar-background;
+        font-size: 14px;
+        font-weight: 500;
+    }
+    
+    .profile-name {
+        color: #1d73b5;
+        font-size: 16px;
+        font-weight: bold;
+        margin-bottom: 5px;
+    }
+    
+    .profile-container {
+        padding: 20px 10px;
+    }
+    
+    .margin-top-5px {
+        margin-top: 5px;
+    }
+    
+    .text-italic {
+        font-style: italic;
+    }
+}

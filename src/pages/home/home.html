@@ -18,7 +18,7 @@
   <ion-grid>
     <ion-row *ngFor='let l of homeList; let i = index'>
       <div *ngIf="i==0">
-        <ion-row >
+        <ion-row (click)="callDetailsPage(l)">
           <img class="img_src" src="{{ l.AttachmentLocation }}" />
         </ion-row>
         <ion-row >
@@ -27,7 +27,7 @@
       </div>
       <div *ngIf="i>0">
         <ion-row>
-          <ion-row *ngIf="l.MediaType !== ('Youtube Video' && 'Banner')">
+          <ion-row *ngIf="(l.MediaType == 'News' && l.Type == 'News')" (click)="callDetailsPage(l)">
             <ion-col width-40>
               <img class="img_src_next" src="{{ l.AttachmentLocation === '' ? l.MediaLink : l.AttachmentLocation }}" />
             </ion-col>
@@ -36,11 +36,19 @@
             </ion-col>
           </ion-row>
           <ion-row *ngIf="l.MediaType === 'Banner'">
-            <img class="img_src" src="{{ l.AttachmentLocation }}" />
+            <img class="img_src" (click)="openBrowser(l.MediaLink)" src="{{ l.AttachmentLocation }}" />
+          </ion-row>
+          <ion-row *ngIf="l.MediaType === 'Youtube Video'" (click)="openVideo(l.VideoCode)">
+            <ion-col width-40>
+              <img class="img_src" src="{{ l.MediaLink }}" />
+            </ion-col>
+            <ion-col width-60>
+              <span>{{ l.Title }}</span>
+            </ion-col>
           </ion-row>
         </ion-row>
+        <hr *ngIf="l.MediaType == 'News' || l.Type == 'News'|| l.MediaType === 'Banner' || l.MediaType === 'Youtube Video'" style="width:100%; border-bottom: 1px solid #1D71B9">
       </div>
-      <hr style="width:100%; border-bottom: 1px solid #1D71B9">
     </ion-row>
   </ion-grid>
 </ion-content>
@@ -60,7 +68,7 @@
       <ion-col (click) = "callContacts()">
         <img src="assets/icon/contacts.png">
       </ion-col>
-      <ion-col>
+      <ion-col (click) = "callProfile()">
         <img src="assets/icon/profile.png">
       </ion-col>
     </ion-row>

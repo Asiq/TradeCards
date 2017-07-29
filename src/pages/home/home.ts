@@ -4,6 +4,9 @@ import { Component, OnInit } from '@angular/core';
 import { NavController, LoadingController } from 'ionic-angular';
 import { HomeserviceProvider } from './../../providers/homeservice/homeservice';
 import { NotificationPage } from "../notification/notification";
+import { InAppBrowser } from "@ionic-native/in-app-browser";
+import { UserProfilePage } from "../profile/profile";
+import { YoutubeVideoPlayer } from "@ionic-native/youtube-video-player";
 
 @Component({
   selector: 'page-home',
@@ -17,13 +20,17 @@ export class HomePage implements OnInit {
   loading: any;   
   newsRes: any; 
   constructor(public navCtrl: NavController, private homeService: HomeserviceProvider,
-   private loadingCtrl: LoadingController) {
+   private loadingCtrl: LoadingController, private iab: InAppBrowser, private youTube: YoutubeVideoPlayer) {
     
   }
   
   ngOnInit() {
     this.presentLoadingDefault();
     this.loadList();
+  }
+
+  openVideo(myVideoID) {
+    this.youTube.openVideo(myVideoID);
   }
   
   loadList() {
@@ -43,6 +50,14 @@ export class HomePage implements OnInit {
     });
 
     this.loading.present();
+  }
+
+  openBrowser(link: any) {
+    this.iab.create(link, "_system"); 
+  }
+
+  callProfile(){
+    this.navCtrl.push(UserProfilePage);  
   }
 
   callNotification() {
@@ -66,5 +81,9 @@ export class HomePage implements OnInit {
 
   callContacts() {
     this.navCtrl.push(ContactsPage);
+  }
+
+  callDetailsPage(info: any) {
+    
   }
 }

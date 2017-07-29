@@ -1,3 +1,4 @@
+import { AotocompleteProvider } from './../../providers/aotocomplete/aotocomplete';
 import { HomeserviceProvider } from './../../providers/homeservice/homeservice';
 import { LoginserviceProvider } from './../../providers/loginservice/loginservice';
 import { HomePage } from './../home/home';
@@ -29,16 +30,29 @@ export class RegisterfinalPage implements OnInit {
   registerRes: any;
   loading: any;
   value: any;
+  companyList: any = [];
 
   constructor(public navCtrl: NavController, public navParams: NavParams, 
               public alertCtrl: AlertController,
               private loginService: LoginserviceProvider, 
               private homeService: HomeserviceProvider,
-              private loadingCtrl: LoadingController) {
+              private loadingCtrl: LoadingController, private completeTestService: AotocompleteProvider) {
   }
 
   ngOnInit(): void {
     this.createForm();
+    this.getCompanyList();
+  }
+
+  getCompanyList() {
+    this.homeService.getCompanyList()
+         .subscribe(companyListRes =>  {
+          if(companyListRes && companyListRes.hasOwnProperty("result")) {
+                this.companyList = companyListRes["result"];
+          }
+           console.log('companyList :: ' + this.companyList.length);
+           console.log('companyList :: ' + JSON.stringify(this.companyList));
+        });
   }
 
   createForm() {

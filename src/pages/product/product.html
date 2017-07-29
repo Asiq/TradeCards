@@ -1,24 +1,82 @@
 <ion-header>
-  <ion-navbar>
-    <button ion-button menuToggle>
-      <ion-icon name="menu"></ion-icon>
-    </button>
-    <ion-title>
-        <img src="assets/images/brand.png" />
-        <div style="display: inline-block; float: right">            
-            <img src="assets/icon/notification.png" style="width: 24px; height: 24px;" />
-            <span style="font-size: 10px;position: absolute;top: 1px;right: 12px;background: red;display: inline-block;border-radius: 10px;height: 12px;width: 12px;text-align: center;">2</span>
+    <ion-navbar hideBackButton="true">
+        <button ion-button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+        </button>
+        <ion-title class="col-center">
+            Products
+        </ion-title>
+        <ion-buttons end (click) ="callNotification()">
+                     <button ion-button icon-only>
+                <ion-icon ios="ios-notifications" md="md-notifications"></ion-icon>
+            </button>
+        </ion-buttons> 
+       
+    </ion-navbar>
+    <!--<ion-navbar primary> 
+        <ion-searchbar col-12 [(ngModel)]="searchTerm"  [formControl]="searchControl" 
+            (ionInput)="onSearchInput()">
+        </ion-searchbar>
+        <div *ngIf="searching" class="spinner-container">
+            <ion-spinner></ion-spinner>
         </div>
-    </ion-title>
-  </ion-navbar>
+    </ion-navbar>-->
+    <ion-row>
+        <ion-searchbar col-12 [(ngModel)]="searchTerm"  [formControl]="searchControl" 
+                (ionInput)="onSearchInput()">
+        </ion-searchbar>
+        <div *ngIf="searching" class="spinner-container">
+            <ion-spinner></ion-spinner>
+        </div>
+    </ion-row>
 </ion-header>
 
-<ion-content padding>
-  <h3>Ionic Menu Starter</h3>
+<ion-content no-padding>
 
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will show you the way.
-  </p>
+    <ion-grid no-padding>
+        <ion-list>
+            <ion-row *ngFor='let l of productListData; let i = index'>
+                <ion-col col-4>
+                    <ion-thumbnail item-start>
+                        <img class="product-image" src='{{l.AttachmentLocation}}'>
+                    </ion-thumbnail>
+                </ion-col>
+                <ion-col col-8>
+                    <p class='margin-top-0'>{{l.ProductsName}}</p>
+                    <ion-row>
+                        <p class="pro-supply">Supplied By:</p>
+                        <p class='margin-top-0 pro-company-name'>{{l.MemberCompanyName}}</p>
+                        <p class='margin-top-0 font-12'>{{l.IndustryID}}</p>
+                    </ion-row>
+                </ion-col>
+                <hr style="width:100%; border-bottom: 1px solid #1D71B9">
+            </ion-row>
+              
+        </ion-list>
+    </ion-grid>
 
-  <button ion-button secondary menuToggle>Toggle Menu</button>
+
+
 </ion-content>
+
+<ion-footer class="custom-footer-color">
+    <ion-toolbar>
+        <ion-row class="footer_row">
+            <ion-col (click) ="callNews()">
+                <img src="assets/icon/news.png">
+            </ion-col>
+            <ion-col>
+                <img src="assets/icon/events.png">
+            </ion-col>
+            <ion-col no-padding>
+                <img src="assets/icon/scanning.png">
+            </ion-col>
+            <ion-col (click) ="callContacts()">
+                <img src="assets/icon/contacts.png">
+            </ion-col>
+            <ion-col (click) ="callProfile()">
+                <img src="assets/icon/profile.png">
+            </ion-col>
+        </ion-row>
+    </ion-toolbar>
+</ion-footer>

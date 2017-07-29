@@ -25350,6 +25350,14 @@ page-login .help-block {
   color: #ea6153;
 }
 
+page-login .active {
+  border: 2px solid yellow;
+}
+
+page-login .deActive {
+  border: 2px solid red;
+}
+
 page-home .spinner-container {
   width: 100%;
   text-align: center;
@@ -25371,6 +25379,114 @@ page-home .icons {
   font-size: 0.9em;
 }
 
+.product-image {
+  width: 100px !important;
+  height: 100px !important;
+}
+
+.margin-top-0 {
+  margin: 0px;
+  width: 100%;
+  color: #514c4c;
+}
+
+.pro-supply {
+  margin-bottom: 0px;
+  margin-top: 30px;
+  font-size: 12px;
+}
+
+.pro-company-name {
+  color: #1d73b5 !important;
+  font-size: 12px;
+}
+
+.font-12 {
+  font-size: 12px;
+}
+
+page-profile .no-padding {
+  padding: 0px !important;
+}
+
+page-profile .max-width-100-px {
+  max-width: 100px;
+}
+
+page-profile .padding-10px {
+  padding: 0px 5px 5px 0px;
+}
+
+page-profile .text-color-blue {
+  color: #1d73b5;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+page-profile .profile-name {
+  color: #1d73b5;
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+page-profile .profile-container {
+  padding: 20px 10px;
+}
+
+page-profile .margin-top-5px {
+  margin-top: 5px;
+}
+
+page-profile .text-italic {
+  font-style: italic;
+}
+
+page-edit-profile .no-padding {
+  padding: 0px !important;
+}
+
+page-edit-profile .max-width-100-px {
+  max-width: 100px;
+}
+
+page-edit-profile .padding-10px {
+  padding: 0px 5px 5px 0px;
+}
+
+page-edit-profile input[type="text"], page-edit-profile textarea {
+  width: 100%;
+}
+
+page-edit-profile textarea {
+  height: 50px;
+}
+
+page-edit-profile .display-inline-block {
+  display: inline-block;
+}
+
+page-edit-profile .display-block {
+  display: block;
+}
+
+page-edit-profile .photo-container {
+  height: 80px;
+}
+
+page-edit-profile .photo-placer {
+  width: 66px;
+  height: 66px;
+}
+
+page-edit-profile .camera-icon {
+  position: relative;
+  left: 0px;
+  top: -50px;
+  height: 35px;
+  width: 35px;
+}
+
 page-register .register-bg {
   background-color: #1D71B9;
   color: #fff;
@@ -25385,4 +25501,68 @@ page-registerfinal .start_button {
   background-color: #fff;
   color: #1D71B9;
   font-weight: 500;
+}
+
+.spinner-container {
+  width: 100%;
+  text-align: center;
+  padding: 10px;
+}
+
+.button-container {
+  -webkit-align-self: flex-end;
+  -ms-flex-item-align: end;
+  align-self: flex-end;
+  text-align: right;
+}
+
+.icons {
+  background-color: #fff;
+  border: 1px solid #7f8c8d;
+  color: #7f8c8d;
+  margin: 0;
+  font-size: 0.9em;
+}
+
+.contact-label {
+  background: #ccc;
+  padding: 5px;
+  margin: 5px;
+}
+
+.custom-profile {
+  padding: 0px !important;
+  background-color: #eeebeb !important;
+}
+
+.custom-profile img {
+  height: 100px !important;
+  width: 100px !important;
+  margin-left: 10px;
+}
+
+.custom-profile .title {
+  margin-bottom: 29px;
+  color: #1d73b5 !important;
+}
+
+.editable-div {
+  border-radius: 4px;
+  height: 79px;
+  margin-bottom: 6px;
+  border: 1px solid #1d73b5;
+  width: 100%;
+}
+
+.chat-icon {
+  margin-top: 3px;
+  margin-left: -10px;
+  /* padding-bottom: 26px; */
+  font-size: 35px;
+  color: #1d73b5;
+}
+
+textarea {
+  border: none;
+  width: 100%;
 }
