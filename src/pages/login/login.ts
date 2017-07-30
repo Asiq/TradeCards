@@ -51,14 +51,14 @@ export class LoginPage implements OnInit {
 
   doLogin(value: any) {
     if(this.loginForm.valid) {
-      if(value.loginData.remeberLogin) {
+      // if(value.loginData.remeberLogin) {
         this.loginDetails = { 'email' : value.loginData.email, 
                               'password' : value.loginData.password,
                             'rememberLogin' : value.loginData.remeberLogin };
 
         console.log("loginDetials :: "+ this.loginDetails);
         this.loginService.setData("loginDetails", this.loginDetails);
-      }
+      // }
       this.presentLoadingDefault();
       this.loginService.getLoginData(value.loginData.email, value.loginData.password)
         .subscribe(loginRes =>  { this.loginRes = loginRes, 

@@ -1,24 +1,73 @@
 <ion-header>
-  <ion-navbar>
-    <button ion-button menuToggle>
+  <ion-navbar hideBackButton="true">
+    <button ion-button icon-only menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>
+    <ion-title class="col-center">
         <img src="assets/images/brand.png" />
-        <div style="display: inline-block; float: right">            
-            <img src="assets/icon/notification.png" style="width: 24px; height: 24px;" />
-            <span style="font-size: 10px;position: absolute;top: 1px;right: 12px;background: red;display: inline-block;border-radius: 10px;height: 12px;width: 12px;text-align: center;">2</span>
-        </div>
     </ion-title>
+    <ion-buttons end (click) ="callNotification()">
+      <button ion-button icon-only>
+        <ion-icon ios="ios-notifications" md="md-notifications"></ion-icon>
+      </button>
+    </ion-buttons>   
   </ion-navbar>
+  <ion-row>
+      <ion-searchbar col-12 [(ngModel)]="searchTerm"  [formControl]="searchControl" 
+              (ionInput)="onSearchInput()">
+      </ion-searchbar>
+      <div *ngIf="searching" class="spinner-container">
+          <ion-spinner></ion-spinner>
+      </div>
+  </ion-row>
 </ion-header>
 
 <ion-content padding>
-  <h3>Ionic Menu Starter</h3>
-
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will show you the way.
-  </p>
-
-  <button ion-button secondary menuToggle>Toggle Menu</button>
+  <ion-grid>
+    <ion-row *ngFor='let l of projectListData; let i = index'>
+      <div *ngIf="i==0">
+        <ion-row (click)="callDetailsPage(l)">
+          <img class="img_src" src="{{ l.AttachmentLocation }}" />
+        </ion-row>
+        <ion-row >
+          <p>{{ l.ProjectsTitle }}</p>
+        </ion-row>
+      </div>
+      <div *ngIf="i>0">
+        <ion-row>
+          <ion-row (click)="callDetailsPage(l)">
+            <ion-col width-40>
+              <img class="img_src_next" src="{{ l.AttachmentLocation }}" />
+            </ion-col>
+            <ion-col width-60 >
+              <span>{{ l.ProjectsTitle }}</span>
+            </ion-col>
+          </ion-row>
+        </ion-row>
+        <hr style="width:100%; border-bottom: 1px solid #1D71B9">
+      </div>
+    </ion-row>
+  </ion-grid>
 </ion-content>
+
+<ion-footer class="custom-footer-color">
+  <ion-toolbar>
+    <ion-row class="footer_row">
+      <ion-col (click) ="callNews()">
+        <img src="assets/icon/news.png">
+      </ion-col>
+      <ion-col>
+        <img src="assets/icon/events.png">
+      </ion-col>
+      <ion-col no-padding>
+        <img src="assets/icon/scanning.png">
+      </ion-col>
+      <ion-col (click) = "callContacts()">
+        <img src="assets/icon/contacts.png">
+      </ion-col>
+      <ion-col (click) = "callProfile()">
+        <img src="assets/icon/profile.png">
+      </ion-col>
+    </ion-row>
+  </ion-toolbar>
+</ion-footer>

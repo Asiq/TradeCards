@@ -19,8 +19,13 @@
           <ion-label color="primary" class="textColor-white">Name:</ion-label>
           <ion-input class="form-control" formControlName="name" type="text" required></ion-input>
         </ion-item>
+        <!--<ion-auto-complete [dataProvider]="autoCompleteService"></ion-auto-complete>-->
         <ion-item class="item-bg">
           <ion-label color="primary" class="textColor-white">Company:</ion-label>
+          <!--<ion-auto-complete [dataProvider]="autoCompleteService"></ion-auto-complete>-->
+          <!--<ion-select [(ngModel)]="zone.kind" interface="popover">
+            <ion-option *ngFor="#key of companyList">{{key.MemberCompanyName}}</ion-option>
+          </ion-select>-->
           <ion-input class="form-control" formControlName="company" type="text" required></ion-input>
         </ion-item>
         <ion-item class="item-bg">

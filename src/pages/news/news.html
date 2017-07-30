@@ -26,19 +26,6 @@
 
 <ion-content padding>
   <ion-grid>
-    <!--<ion-row>
-      <ion-col col-9>
-        <ion-searchbar style="padding: 0;" [(ngModel)]="searchTerm" (ionInput)="setFilteredItems()"></ion-searchbar>
-      </ion-col>
-      <ion-col col-3 class="button-container">
-        <button ion-button> 
-          Filter
-        </button>
-      </ion-col>
-    </ion-row>-->
-    <!--<div *ngIf="searching" class="spinner-container">
-        <ion-spinner></ion-spinner>
-    </div>-->
     <ion-row *ngFor='let l of newsListData; let i = index'>
       <div *ngIf="i==0">
         <ion-row >

@@ -43,13 +43,10 @@ export class ProductPage {
                 console.log('productsList :: '+ this.productsList);
                 this.productListData = this.productList;
                 console.log('this.product : '+this.productListData);
-
             } 
           }
-            
             this.loading.dismiss();
         });
-      
   }
 
   ionViewDidLoad() {
